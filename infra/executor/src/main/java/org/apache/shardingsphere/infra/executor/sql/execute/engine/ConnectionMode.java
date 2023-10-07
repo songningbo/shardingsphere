@@ -20,6 +20,8 @@ package org.apache.shardingsphere.infra.executor.sql.execute.engine;
 /**
  * Connection Mode.
  */
+// 连接模式
+// MEMORY_STRICTLY,代表内存限制模式，CONNECTION_STRICTLY连接限制模式
 public enum ConnectionMode {
     
     MEMORY_STRICTLY, CONNECTION_STRICTLY

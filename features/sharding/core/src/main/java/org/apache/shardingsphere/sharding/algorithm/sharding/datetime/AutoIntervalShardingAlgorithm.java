@@ -41,14 +41,16 @@ import java.util.Properties;
 /**
  * Auto interval sharding algorithm.
  */
+// 自动时间段分片算法
 public final class AutoIntervalShardingAlgorithm implements StandardShardingAlgorithm<Comparable<?>>, ShardingAutoTableAlgorithm {
-    
+
+    // 分片的起始时间范围，时间戳格式：yyyy-MM-dd HH:mm:ss
     private static final String DATE_TIME_LOWER_KEY = "datetime-lower";
-    
+    // 分片的结束时间范围，时间戳格式：yyyy-MM-dd HH:mm:ss
     private static final String DATE_TIME_UPPER_KEY = "datetime-upper";
-    
+    // 单一分片所能承载的最大时间，单位：秒，允许分片键的时间戳格式的秒带有时间精度，但秒后的时间精度会被自动抹去
     private static final String SHARDING_SECONDS_KEY = "sharding-seconds";
-    
+    // 时间格式
     private static final DateTimeFormatter DATE_TIME_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     
     private LocalDateTime dateTimeLower;

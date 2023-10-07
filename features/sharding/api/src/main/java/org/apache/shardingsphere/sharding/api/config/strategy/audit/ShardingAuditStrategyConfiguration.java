@@ -25,11 +25,12 @@ import java.util.Collection;
 /**
  * Sharding audit strategy configuration.
  */
+// 分片审计策略配置
 @RequiredArgsConstructor
 @Getter
 public final class ShardingAuditStrategyConfiguration {
-    
+    // 分片审计算法名称
     private final Collection<String> auditorNames;
-    
+    // 是否禁用分片审计hint
     private final boolean allowHintDisable;
 }

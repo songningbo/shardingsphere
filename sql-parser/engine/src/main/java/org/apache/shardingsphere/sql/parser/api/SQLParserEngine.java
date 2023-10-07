@@ -25,10 +25,12 @@ import org.apache.shardingsphere.sql.parser.core.database.parser.SQLParserExecut
 /**
  * SQL parser engine.
  */
+// SQL解析引擎
 public final class SQLParserEngine {
-    
+
+    // SQL解析执行器
     private final SQLParserExecutor sqlParserExecutor;
-    
+    // caffeine缓存
     private final LoadingCache<String, ParseASTNode> parseTreeCache;
     
     public SQLParserEngine(final String databaseType, final CacheOption cacheOption) {
@@ -43,6 +45,7 @@ public final class SQLParserEngine {
      * @param useCache whether use cache
      * @return parse AST node
      */
+    // 解析SQL并返回ParseASTNode对象
     public ParseASTNode parse(final String sql, final boolean useCache) {
         return useCache ? parseTreeCache.get(sql) : sqlParserExecutor.parse(sql);
     }

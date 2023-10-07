@@ -30,5 +30,6 @@ public interface YamlRuleConfiguration extends YamlConfiguration {
      * 
      * @return rule configuration type
      */
+    // 获取规则配置类型
     Class<? extends RuleConfiguration> getRuleConfigurationType();
 }

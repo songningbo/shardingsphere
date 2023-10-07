@@ -26,6 +26,7 @@ import org.apache.shardingsphere.agent.spi.PluginLifecycleService;
 /**
  * Open telemetry tracing plugin lifecycle service.
  */
+// OpenTelemetry插件生命周期管理类
 public class OpenTelemetryTracingPluginLifecycleService implements PluginLifecycleService {
     
     @Override

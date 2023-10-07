@@ -25,15 +25,20 @@ import org.apache.shardingsphere.readwritesplitting.api.strategy.StaticReadwrite
 /**
  * Readwrite-splitting data source rule configuration.
  */
+// 主从数据源配置
 @RequiredArgsConstructor
 @Getter
 public final class ReadwriteSplittingDataSourceRuleConfiguration {
-    
+
+    // 读写分离数据源名称
     private final String name;
-    
+
+    // 静态读写分离策略配置
     private final StaticReadwriteSplittingStrategyConfiguration staticStrategy;
-    
+
+    // 动态读写分离策略配置
     private final DynamicReadwriteSplittingStrategyConfiguration dynamicStrategy;
-    
+
+    // 读库负载均衡算法名称，默认轮询负载均衡算法
     private final String loadBalancerName;
 }

@@ -33,6 +33,7 @@ import java.util.List;
 /**
  * DML sharding conditions sharding audit algorithm.
  */
+// 禁止不带分片键的DML审计算法
 public final class DMLShardingConditionsShardingAuditAlgorithm implements ShardingAuditAlgorithm {
     
     @Override

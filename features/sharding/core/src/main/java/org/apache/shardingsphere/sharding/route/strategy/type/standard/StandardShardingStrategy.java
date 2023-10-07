@@ -39,6 +39,7 @@ import java.util.TreeSet;
 /**
  * Standard sharding strategy.
  */
+// 标准分片策略
 @Getter
 public final class StandardShardingStrategy implements ShardingStrategy {
     

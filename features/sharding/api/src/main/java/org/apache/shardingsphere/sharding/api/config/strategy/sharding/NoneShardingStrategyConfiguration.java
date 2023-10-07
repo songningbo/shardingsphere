@@ -20,6 +20,7 @@ package org.apache.shardingsphere.sharding.api.config.strategy.sharding;
 /**
  * None sharding strategy configuration.
  */
+// 不分片策略配置
 public final class NoneShardingStrategyConfiguration implements ShardingStrategyConfiguration {
     
     @Override

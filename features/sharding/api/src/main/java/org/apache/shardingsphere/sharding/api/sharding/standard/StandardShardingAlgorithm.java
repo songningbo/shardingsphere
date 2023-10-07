@@ -26,6 +26,7 @@ import java.util.Collection;
  * 
  * @param <T> class type of sharding value
  */
+// 标准分片算法
 public interface StandardShardingAlgorithm<T extends Comparable<?>> extends ShardingAlgorithm {
     
     /**

@@ -24,12 +24,13 @@ import org.apache.shardingsphere.infra.config.rule.scope.GlobalRuleConfiguration
 /**
  * SQL translator rule configuration.
  */
+// SQL翻译规则配置
 @RequiredArgsConstructor
 @Getter
 public final class SQLTranslatorRuleConfiguration implements GlobalRuleConfiguration {
-    
+    // 	SQL 翻译器类型
     private final String type;
-    
+    // SQL 翻译失败是否使用原始 SQL 继续执行
     private final boolean useOriginalSQLWhenTranslatingFailed;
     
     public SQLTranslatorRuleConfiguration() {

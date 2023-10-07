@@ -23,6 +23,7 @@ import org.apache.shardingsphere.agent.spi.PluginLifecycleService;
 /**
  * File logging plugin lifecycle service.
  */
+// File插件生命周期管理类
 public final class FileLoggingPluginLifecycleService implements PluginLifecycleService {
     
     @Override

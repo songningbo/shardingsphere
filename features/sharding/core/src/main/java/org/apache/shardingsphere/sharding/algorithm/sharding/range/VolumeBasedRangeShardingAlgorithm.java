@@ -30,12 +30,14 @@ import java.util.Properties;
 /**
  * Volume based range sharding algorithm.
  */
+// 基于分片容量的范围分片算法
 public final class VolumeBasedRangeShardingAlgorithm extends AbstractRangeShardingAlgorithm {
-    
+
+    // 范围下界
     private static final String RANGE_LOWER_KEY = "range-lower";
-    
+    // 范围上界
     private static final String RANGE_UPPER_KEY = "range-upper";
-    
+    // 分片容量
     private static final String SHARDING_VOLUME_KEY = "sharding-volume";
     
     @Override

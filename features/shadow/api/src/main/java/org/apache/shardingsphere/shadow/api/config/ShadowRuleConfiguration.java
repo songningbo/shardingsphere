@@ -33,15 +33,16 @@ import java.util.Map;
 /**
  * Shadow rule configuration.
  */
+// 影子库规则配置
 @Getter
 @Setter
 public final class ShadowRuleConfiguration implements DatabaseRuleConfiguration, DistributedRuleConfiguration {
-    
+    // 影子数据源配置
     private Collection<ShadowDataSourceConfiguration> dataSources = new LinkedList<>();
-    
+    // 影子表名称和配置
     private Map<String, ShadowTableConfiguration> tables = new LinkedHashMap<>();
-    
+    // 影子算法名称和配置
     private Map<String, AlgorithmConfiguration> shadowAlgorithms = new LinkedHashMap<>();
-    
+    // 	默认影子算法名称
     private String defaultShadowAlgorithmName;
 }

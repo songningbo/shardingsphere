@@ -26,6 +26,7 @@ import java.util.Calendar;
 /**
  * Query result.
  */
+// 查询结果的接口
 public interface QueryResult extends ExecuteResult {
     
     /**

@@ -27,18 +27,20 @@ import org.apache.shardingsphere.sharding.api.config.strategy.sharding.ShardingS
 /**
  * Sharding auto table rule configuration.
  */
+// 自动分片规则配置
 @RequiredArgsConstructor
 @Getter
 @Setter
 public final class ShardingAutoTableRuleConfiguration {
-    
+
+    // 分片逻辑表名称
     private final String logicTable;
-    
+    // 数据源名称，多个数据源以逗号分隔，默认值是全部配置的数据源。
     private final String actualDataSources;
-    
+    // 分片策略，默认分片策略
     private ShardingStrategyConfiguration shardingStrategy;
-    
+    // 自增列生成器，默认自增主键生成器
     private KeyGenerateStrategyConfiguration keyGenerateStrategy;
-    
+    // 分片审计策略，模式分片审计策略
     private ShardingAuditStrategyConfiguration auditStrategy;
 }

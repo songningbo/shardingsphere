@@ -36,6 +36,7 @@ import java.util.concurrent.Executor;
 /**
  * Unsupported {@code Connection} methods.
  */
+// 对Connection中不支持的方法。
 public abstract class AbstractUnsupportedOperationConnection extends WrapperAdapter implements Connection {
     
     @Override

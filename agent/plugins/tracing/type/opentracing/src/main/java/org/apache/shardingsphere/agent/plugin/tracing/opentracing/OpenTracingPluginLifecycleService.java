@@ -26,6 +26,7 @@ import org.apache.shardingsphere.agent.spi.PluginLifecycleService;
 /**
  * Open tracing plugin lifecycle service.
  */
+// Open tracing插件生命周期管理类
 public final class OpenTracingPluginLifecycleService implements PluginLifecycleService {
     
     private static final String KEY_OPENTRACING_TRACER_CLASS_NAME = "opentracing-tracer-class-name";

@@ -23,11 +23,14 @@ import lombok.RequiredArgsConstructor;
 /**
  * Mode configuration.
  */
+// 运行模式
 @RequiredArgsConstructor
 @Getter
 public final class ModeConfiguration {
-    
+    // type:Standalone/Cluster，默认是Standalone。
     private final String type;
-    
+    // 持久化仓库配置：
+    //  Standalone类型使用StandalonePersistRepositoryConfiguration
+    //  Cluster类型使用ClusterPersistRepositoryConfiguration
     private final PersistRepositoryConfiguration repository;
 }

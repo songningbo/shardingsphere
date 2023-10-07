@@ -31,11 +31,13 @@ import java.util.Optional;
 /**
  * JDBC context.
  */
+// JDBC上下文，用来存储数据库元数据。
 @Getter
 public final class JDBCContext {
     
     private volatile CachedDatabaseMetaData cachedDatabaseMetaData;
-    
+
+    // 初始化时构造CachedDatabaseMetaData对象用来存储数据库元数据。
     public JDBCContext(final Map<String, DataSource> dataSources) throws SQLException {
         cachedDatabaseMetaData = createCachedDatabaseMetaData(dataSources).orElse(null);
     }
@@ -46,11 +48,13 @@ public final class JDBCContext {
      * @param event data source changed event
      * @throws SQLException SQL exception
      */
+    // 刷新缓存数据库元数据
     @Subscribe
     public synchronized void refreshCachedDatabaseMetaData(final DataSourceChangedEvent event) throws SQLException {
         cachedDatabaseMetaData = createCachedDatabaseMetaData(DataSourcePoolCreator.create(event.getDataSourcePropertiesMap())).orElse(null);
     }
-    
+
+    // 创建存储数据库元数据对象
     private Optional<CachedDatabaseMetaData> createCachedDatabaseMetaData(final Map<String, DataSource> dataSources) throws SQLException {
         if (dataSources.isEmpty()) {
             return Optional.empty();

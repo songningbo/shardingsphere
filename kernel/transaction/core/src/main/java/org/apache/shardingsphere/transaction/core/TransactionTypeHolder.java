@@ -26,7 +26,8 @@ import org.apache.shardingsphere.transaction.api.TransactionType;
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class TransactionTypeHolder {
-    
+
+    // 用来存储事务类型，针对不同线程的事务设置。
     private static final ThreadLocal<TransactionType> CONTEXT = new ThreadLocal<>();
     
     /**
@@ -43,6 +44,7 @@ public final class TransactionTypeHolder {
      *
      * @param transactionType transaction type
      */
+    // 设置事务类型
     public static void set(final TransactionType transactionType) {
         CONTEXT.set(transactionType);
     }

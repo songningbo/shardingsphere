@@ -26,6 +26,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Round-robin traffic load balance algorithm.
  */
+// 轮询负载均衡算法
 public final class RoundRobinTrafficLoadBalanceAlgorithm implements TrafficLoadBalanceAlgorithm {
     
     private final AtomicInteger count = new AtomicInteger(0);

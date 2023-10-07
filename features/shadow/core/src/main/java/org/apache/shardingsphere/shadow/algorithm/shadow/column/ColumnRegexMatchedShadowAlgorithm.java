@@ -26,10 +26,11 @@ import java.util.regex.Pattern;
 /**
  * Column regex matched shadow algorithm.
  */
+// 列正则表达式匹配算法
 public final class ColumnRegexMatchedShadowAlgorithm extends AbstractColumnMatchedShadowAlgorithm {
-    
+
     private static final String REGEX_PROPS_KEY = "regex";
-    
+    // 影子列匹配正则表达式
     private Pattern regex;
     
     @Override

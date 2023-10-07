@@ -34,8 +34,10 @@ import java.util.Properties;
 /**
  * Modulo sharding algorithm.
  */
+// 基于取模的分片算法
 public final class ModShardingAlgorithm implements StandardShardingAlgorithm<Comparable<?>>, ShardingAutoTableAlgorithm {
-    
+
+    // 分片数量
     private static final String SHARDING_COUNT_KEY = "sharding-count";
     
     private static final String START_OFFSET_INDEX_KEY = "start-offset";

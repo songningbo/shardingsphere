@@ -28,6 +28,7 @@ import java.util.List;
 /**
  * Sharding audit algorithm.
  */
+// 分片审计算法
 public interface ShardingAuditAlgorithm extends TypedSPI {
     
     /**

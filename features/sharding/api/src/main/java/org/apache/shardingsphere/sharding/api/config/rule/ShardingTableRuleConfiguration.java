@@ -27,20 +27,28 @@ import org.apache.shardingsphere.sharding.api.config.strategy.sharding.ShardingS
 /**
  * Sharding table rule configuration.
  */
+// 分片表规则配置
 @RequiredArgsConstructor
 @Getter
 @Setter
 public final class ShardingTableRuleConfiguration {
-    
+
+    // 分片逻辑表名称
     private final String logicTable;
-    
+
+    // 由数据源名 + 表名组成，以小数点分隔。多个表以逗号分隔，支持行表达式
+    // 默认：已知数据源与逻辑表名称生成数据节点，用于广播表或只分库不分表且所有库的表结构完全一致的情况
     private final String actualDataNodes;
-    
+
+    // 分库策略，使用默认分库策略
     private ShardingStrategyConfiguration databaseShardingStrategy;
-    
+
+    // 分表策略，使用默认分表策略
     private ShardingStrategyConfiguration tableShardingStrategy;
-    
+
+    // 自增列生成器，使用自增主键生成器
     private KeyGenerateStrategyConfiguration keyGenerateStrategy;
-    
+
+    // 分片审计策略，使用默认分片审计策略
     private ShardingAuditStrategyConfiguration auditStrategy;
 }

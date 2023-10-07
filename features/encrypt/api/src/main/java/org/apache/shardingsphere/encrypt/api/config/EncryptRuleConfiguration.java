@@ -30,14 +30,15 @@ import java.util.Map;
 /**
  * Encrypt rule configuration.
  */
+// 数据加密配置入口
 @RequiredArgsConstructor
 @Getter
 public final class EncryptRuleConfiguration implements DatabaseRuleConfiguration, EnhancedRuleConfiguration {
-    
+    // 加密表规则配置
     private final Collection<EncryptTableRuleConfiguration> tables;
-    
+    // 加解密算法名称和配置
     private final Map<String, AlgorithmConfiguration> encryptors;
-    
+    // 是否从加密列查询
     private final boolean queryWithCipherColumn;
     
     public EncryptRuleConfiguration(final Collection<EncryptTableRuleConfiguration> tables, final Map<String, AlgorithmConfiguration> encryptors) {

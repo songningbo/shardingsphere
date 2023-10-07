@@ -33,11 +33,12 @@ import java.util.Properties;
 /**
  * Class based sharding algorithm.
  */
+// 自定义类分片算法
 @SuppressWarnings("rawtypes")
 public final class ClassBasedShardingAlgorithm implements StandardShardingAlgorithm<Comparable<?>>, ComplexKeysShardingAlgorithm<Comparable<?>>, HintShardingAlgorithm<Comparable<?>> {
-    
+    // 分片策略类型，支持 STANDARD、COMPLEX 或 HINT（不区分大小写）
     private static final String STRATEGY_KEY = "strategy";
-    
+    // 分片算法全限定名
     private static final String ALGORITHM_CLASS_NAME_KEY = "algorithmClassName";
     
     private ClassBasedShardingAlgorithmStrategyType strategy;

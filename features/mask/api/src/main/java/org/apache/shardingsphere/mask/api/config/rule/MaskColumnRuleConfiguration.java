@@ -23,11 +23,12 @@ import lombok.RequiredArgsConstructor;
 /**
  * Mask column rule configuration.
  */
+// 脱敏列规则配置
 @RequiredArgsConstructor
 @Getter
 public final class MaskColumnRuleConfiguration {
-    
+    // 逻辑列名称
     private final String logicColumn;
-    
+    // 脱敏算法名称
     private final String maskAlgorithm;
 }

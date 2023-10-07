@@ -17,7 +17,8 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.*;
 
-public class ShardingSphereJavaConfig {
+// 数据分库分表配置
+public class DataShardingJavaConfig {
     public static void main(String[] args) throws SQLException {
         // 运行模式配置，单机模式
         ModeConfiguration modeConfig = new ModeConfiguration("Standalone", new StandalonePersistRepositoryConfiguration("JDBC", new Properties()));

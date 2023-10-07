@@ -107,6 +107,7 @@ import java.util.stream.Collectors;
 /**
  * ShardingSphere statement.
  */
+// 为支持分片，ShardingSphereStatement进行重写Statement
 public final class ShardingSphereStatement extends AbstractStatementAdapter {
     
     @Getter

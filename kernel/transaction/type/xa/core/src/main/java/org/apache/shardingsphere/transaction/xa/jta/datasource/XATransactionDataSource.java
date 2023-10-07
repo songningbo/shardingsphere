@@ -44,18 +44,21 @@ import java.util.Set;
 /**
  * XA transaction data source.
  */
+// XA事务数据源
 public final class XATransactionDataSource implements AutoCloseable {
     
     private static final Set<String> CONTAINER_DATASOURCE_NAMES = new HashSet<>(Arrays.asList("AtomikosDataSourceBean", "BasicManagedDataSource"));
-    
+    // 用于管理事务和连接关系
     private final ThreadLocal<Map<Transaction, Connection>> enlistedTransactions = ThreadLocal.withInitial(HashMap::new);
-    
+
+    // 数据库类型
     private final DatabaseType databaseType;
-    
+
+    // 资源名
     private final String resourceName;
-    
+    // 数据源
     private final DataSource dataSource;
-    
+    // XA数据源
     private XADataSource xaDataSource;
     
     private XATransactionManagerProvider xaTransactionManagerProvider;

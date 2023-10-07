@@ -34,6 +34,7 @@ public interface ShardingStrategy {
      * 
      * @return sharding columns
      */
+    // 获取分片 Column
     Collection<String> getShardingColumns();
     
     /**
@@ -52,5 +53,6 @@ public interface ShardingStrategy {
      * @param props configuration properties
      * @return sharding results for data source or table names
      */
+    // 执行分片
     Collection<String> doSharding(Collection<String> availableTargetNames, Collection<ShardingConditionValue> shardingConditionValues, DataNodeInfo dataNodeInfo, ConfigurationProperties props);
 }

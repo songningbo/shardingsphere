@@ -25,6 +25,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * UUID key generate algorithm.
  */
+// 基于UUID的分布式主键生成算法
 public final class UUIDKeyGenerateAlgorithm implements KeyGenerateAlgorithm {
     
     @Override

@@ -32,8 +32,9 @@ import java.util.stream.Collectors;
 /**
  * Hint inline sharding algorithm.
  */
+// Hint行表达式分片算法
 public final class HintInlineShardingAlgorithm implements HintShardingAlgorithm<Comparable<?>> {
-    
+    // 分片算法的行表达式,默认值${value}
     private static final String ALGORITHM_EXPRESSION_KEY = "algorithm-expression";
     
     private static final String DEFAULT_ALGORITHM_EXPRESSION = "${value}";

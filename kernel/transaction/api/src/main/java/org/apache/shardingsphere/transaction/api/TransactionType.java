@@ -20,6 +20,7 @@ package org.apache.shardingsphere.transaction.api;
 /**
  * Transaction type.
  */
+// 事务类型：本地事务Local，分布式事务二阶段协议XA，分布式事务柔性事务
 public enum TransactionType {
     
     LOCAL, XA, BASE;

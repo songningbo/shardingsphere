@@ -30,11 +30,13 @@ import java.util.Map;
 /**
  * Readwrite-splitting rule configuration.
  */
+// 读写规则配置
 @RequiredArgsConstructor
 @Getter
 public final class ReadwriteSplittingRuleConfiguration implements DatabaseRuleConfiguration, DistributedRuleConfiguration {
-    
+
+    // 读写数据源配置
     private final Collection<ReadwriteSplittingDataSourceRuleConfiguration> dataSources;
-    
+    // 从库负载均衡算法配置
     private final Map<String, AlgorithmConfiguration> loadBalancers;
 }

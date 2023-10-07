@@ -23,11 +23,12 @@ import lombok.RequiredArgsConstructor;
 /**
  * Key generate strategy configuration.
 */
+// 分布式序列策略配置
 @RequiredArgsConstructor
 @Getter
 public final class KeyGenerateStrategyConfiguration {
-    
+    // 分布式序列列名称
     private final String column;
-    
+    // 分布式序列算法名称
     private final String keyGeneratorName;
 }

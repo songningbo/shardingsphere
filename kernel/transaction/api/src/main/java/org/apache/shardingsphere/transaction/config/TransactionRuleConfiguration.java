@@ -27,14 +27,16 @@ import java.util.Properties;
 /**
  * Transaction rule configuration.
  */
+// 事务配置入口
 @RequiredArgsConstructor
 @Getter
 @EqualsAndHashCode
 public final class TransactionRuleConfiguration implements GlobalRuleConfiguration {
-    
+
+    // 默认事务类型
     private final String defaultType;
-    
+    // 事务提供者类型
     private final String providerType;
-    
+    // 事务属性配置
     private final Properties props;
 }

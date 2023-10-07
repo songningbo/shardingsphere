@@ -25,11 +25,13 @@ import java.util.List;
 /**
  * Static Readwrite-splitting strategy configuration.
  */
+// 静态读写分离策略配置
 @RequiredArgsConstructor
 @Getter
 public final class StaticReadwriteSplittingStrategyConfiguration {
-    
+
+    // 写库数据源名称
     private final String writeDataSourceName;
-    
+    // 读库数据源名称
     private final List<String> readDataSourceNames;
 }

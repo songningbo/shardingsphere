@@ -51,18 +51,21 @@ import java.util.stream.Collectors;
 /**
  * Interval sharding algorithm.
  */
+// 时间范围分片算法
 public final class IntervalShardingAlgorithm implements StandardShardingAlgorithm<Comparable<?>> {
-    
+
+    // 分片键的时间戳格式，必须遵循 Java DateTimeFormatter 的格式。例如：yyyy-MM-dd HH:mm:ss，yyyy-MM-dd 或 HH:mm:ss 等。
+    // 但不支持与 java.time.chrono.JapaneseDate 相关的 Gy-MM 等
     private static final String DATE_TIME_PATTERN_KEY = "datetime-pattern";
-    
+    // 时间分片下界值，格式与 datetime-pattern 定义的时间戳格式一致
     private static final String DATE_TIME_LOWER_KEY = "datetime-lower";
-    
+    // 时间分片上界值，格式与 datetime-pattern 定义的时间戳格式一致
     private static final String DATE_TIME_UPPER_KEY = "datetime-upper";
-    
+    // 分片数据源或真实表的后缀格式，必须遵循 Java DateTimeFormatter 的格式，必须和 datetime-interval-unit 保持一致。例如：yyyyMM
     private static final String SHARDING_SUFFIX_FORMAT_KEY = "sharding-suffix-pattern";
-    
+    // 分片键时间间隔，超过该时间间隔将进入下一分片
     private static final String INTERVAL_AMOUNT_KEY = "datetime-interval-amount";
-    
+    // 分片键时间间隔单位，必须遵循 Java ChronoUnit 的枚举值。例如：MONTHS,默认DAYS
     private static final String INTERVAL_UNIT_KEY = "datetime-interval-unit";
     
     private DateTimeFormatter dateTimeFormatter;

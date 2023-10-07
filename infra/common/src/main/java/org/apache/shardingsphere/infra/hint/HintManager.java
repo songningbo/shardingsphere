@@ -31,19 +31,27 @@ import java.util.Optional;
 /**
  * The manager that use hint to inject sharding key directly through {@code ThreadLocal}.
  */
+// 使用hint直接通过ThreadLocal注入分片key的管理器。
+
+// AutoCloseable接口用于自动释放资源，使用AutoCloseable接口，在try语句结束时，
+// 不需要实现finally语句就会自动将这些资源关闭，JDK会通过回调的方式，调用close方法来做到这一点。
+// 这种机制被称为 try with resource。
+// HintManager通过实现AutoCloseable接口支持资源的自动释放。
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class HintManager implements AutoCloseable {
-    
+
+    // 基于ThreadLocal存储HintManager实例
     private static final ThreadLocal<HintManager> HINT_MANAGER_HOLDER = new ThreadLocal<>();
-    
+    // 数据库分片值
     private final Multimap<String, Comparable<?>> databaseShardingValues = ArrayListMultimap.create();
-    
+    // 数据表分片值
     private final Multimap<String, Comparable<?>> tableShardingValues = ArrayListMultimap.create();
-    
+    // 是否只有数据库分片
     private boolean databaseShardingOnly;
-    
+    // 是否只路由主库。
     private boolean writeRouteOnly;
-    
+
+    // 数据源名称
     @Setter
     private String dataSourceName;
     
@@ -52,6 +60,7 @@ public final class HintManager implements AutoCloseable {
      *
      * @return {@code HintManager} instance
      */
+    // 从ThreadLocal中获取或设置针对当前线程的HintManager实例。
     public static HintManager getInstance() {
         Preconditions.checkState(null == HINT_MANAGER_HOLDER.get(), "Hint has previous value, please clear first.");
         HintManager result = new HintManager();

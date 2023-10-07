@@ -36,10 +36,13 @@ import java.util.Properties;
 /**
  * Inline sharding algorithm.
  */
+// 行表达式分片算法
 public final class InlineShardingAlgorithm implements StandardShardingAlgorithm<Comparable<?>> {
-    
+
+    // 分片算法的行表达式
     private static final String ALGORITHM_EXPRESSION_KEY = "algorithm-expression";
-    
+
+    // 是否允许范围查询。注意：范围查询会无视分片策略，进行全路由
     private static final String ALLOW_RANGE_QUERY_KEY = "allow-range-query-with-inline-sharding";
     
     private String algorithmExpression;

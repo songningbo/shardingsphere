@@ -29,5 +29,6 @@ public interface SQLParser {
      * 
      * @return AST node
      */
+    // 解析SQL成ASTNode节点
     ASTNode parse();
 }

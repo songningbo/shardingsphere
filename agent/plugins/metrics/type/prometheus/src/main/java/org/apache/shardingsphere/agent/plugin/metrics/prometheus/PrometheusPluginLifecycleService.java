@@ -38,6 +38,7 @@ import java.net.InetSocketAddress;
 /**
  * Prometheus plugin lifecycle service.
  */
+// Prometheus插件生命周期管理类
 @Slf4j
 public final class PrometheusPluginLifecycleService implements PluginLifecycleService {
     

@@ -25,6 +25,7 @@ import java.util.Properties;
 /**
  * Column value matched shadow algorithm.
  */
+// 列值匹配算法
 public final class ColumnValueMatchedShadowAlgorithm extends AbstractColumnMatchedShadowAlgorithm {
     
     private static final String VALUE_PROPS_KEY = "value";

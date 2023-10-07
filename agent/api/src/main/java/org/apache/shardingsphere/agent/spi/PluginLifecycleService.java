@@ -22,6 +22,7 @@ import org.apache.shardingsphere.agent.api.PluginConfiguration;
 /**
  * Plugin lifecycle service.
  */
+// 插件声明周期管理接口
 public interface PluginLifecycleService extends AutoCloseable {
     
     /**

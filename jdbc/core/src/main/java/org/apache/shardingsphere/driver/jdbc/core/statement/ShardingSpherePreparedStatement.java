@@ -116,6 +116,7 @@ import java.util.stream.Collectors;
 /**
  * ShardingSphere prepared statement.
  */
+// 为支持分片，ShardingSpherePreparedStatement进行重写PreparedStatement
 public final class ShardingSpherePreparedStatement extends AbstractPreparedStatementAdapter {
     
     @Getter

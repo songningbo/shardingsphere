@@ -20,6 +20,7 @@ package org.apache.shardingsphere.sharding.algorithm.keygen;
 /**
  * Time service.
  */
+// 获取当前时间进行路由
 public class TimeService {
     
     /**

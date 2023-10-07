@@ -24,6 +24,7 @@ import java.util.Optional;
 /**
  * Sharding algorithm.
  */
+// 分片算法
 public interface ShardingAlgorithm extends TypedSPI {
     
     /**
@@ -33,6 +34,7 @@ public interface ShardingAlgorithm extends TypedSPI {
      * @param shardingColumn sharding column
      * @return algorithm structure
      */
+    // 获取算法结构
     default Optional<String> getAlgorithmStructure(final String dataNodePrefix, final String shardingColumn) {
         return Optional.empty();
     }

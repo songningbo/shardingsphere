@@ -40,12 +40,14 @@ import java.util.stream.Collectors;
 /**
  * Complex inline sharding algorithm.
  */
+// 复合行表达式分片算法
 public final class ComplexInlineShardingAlgorithm implements ComplexKeysShardingAlgorithm<Comparable<?>> {
-    
+
+    // 分片算法的行表达式
     private static final String ALGORITHM_EXPRESSION_KEY = "algorithm-expression";
-    
+    // 分片列名称，多个列用逗号分隔。如不配置无法则不能校验
     private static final String SHARING_COLUMNS_KEY = "sharding-columns";
-    
+    // 是否允许范围查询。注意：范围查询会无视分片策略，进行全路由
     private static final String ALLOW_RANGE_QUERY_KEY = "allow-range-query-with-inline-sharding";
     
     private String algorithmExpression;

@@ -37,6 +37,7 @@ import java.nio.CharBuffer;
 /**
  * SQL parser factory.
  */
+// SQL解析工厂
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class SQLParserFactory {
     

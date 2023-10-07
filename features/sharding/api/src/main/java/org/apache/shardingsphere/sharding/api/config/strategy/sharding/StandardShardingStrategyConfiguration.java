@@ -23,12 +23,15 @@ import lombok.RequiredArgsConstructor;
 /**
  * Standard strategy configuration.
  */
+// 标准分片策略配置
 @RequiredArgsConstructor
 @Getter
 public final class StandardShardingStrategyConfiguration implements ShardingStrategyConfiguration {
-    
+
+    // 分片列名称
     private final String shardingColumn;
-    
+
+    // 分片算法名称
     private final String shardingAlgorithmName;
     
     @Override

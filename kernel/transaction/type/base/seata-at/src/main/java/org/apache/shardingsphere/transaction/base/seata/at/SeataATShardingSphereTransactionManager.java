@@ -45,6 +45,7 @@ import java.util.Map;
 /**
  * Seata AT transaction manager.
  */
+// 柔性事务管理器
 public final class SeataATShardingSphereTransactionManager implements ShardingSphereTransactionManager {
     
     private final Map<String, DataSource> dataSourceMap = new HashMap<>();

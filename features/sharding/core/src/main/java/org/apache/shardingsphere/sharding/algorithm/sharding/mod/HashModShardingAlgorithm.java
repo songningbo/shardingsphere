@@ -31,8 +31,10 @@ import java.util.Properties;
 /**
  * Hash sharding algorithm.
  */
+// 哈希取模分片算法
 public final class HashModShardingAlgorithm implements StandardShardingAlgorithm<Comparable<?>>, ShardingAutoTableAlgorithm {
-    
+
+    // 分片数量
     private static final String SHARDING_COUNT_KEY = "sharding-count";
     
     private int shardingCount;

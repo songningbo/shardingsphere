@@ -23,12 +23,13 @@ import lombok.RequiredArgsConstructor;
 /**
  * Cache option.
  */
+// 本地缓存配置
 @RequiredArgsConstructor
 @Getter
 public final class CacheOption {
-    
+    // 	本地缓存初始容量。语法树本地缓存默认值 128，SQL 语句缓存默认值 2000
     private final int initialCapacity;
-    
+    // 本地缓存最大容量。语法树本地缓存默认值 1024，SQL 语句缓存默认值 65535
     private final long maximumSize;
     
     @Override

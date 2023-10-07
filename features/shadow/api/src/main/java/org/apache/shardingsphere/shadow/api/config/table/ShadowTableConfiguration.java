@@ -30,8 +30,8 @@ import java.util.Collection;
 @Getter
 @Setter
 public final class ShadowTableConfiguration {
-    
+    // 影子表关联影子数据源映射名称列表
     private final Collection<String> dataSourceNames;
-    
+    // 影子表关联影子算法名称列表
     private final Collection<String> shadowAlgorithmNames;
 }

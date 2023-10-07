@@ -25,11 +25,12 @@ import java.util.Collection;
 /**
  * Mask table rule configuration.
  */
+// 脱敏表规则配置
 @RequiredArgsConstructor
 @Getter
 public final class MaskTableRuleConfiguration {
-    
+    // 表名称
     private final String name;
-    
+    // 脱敏列规则配置列表
     private final Collection<MaskColumnRuleConfiguration> columns;
 }

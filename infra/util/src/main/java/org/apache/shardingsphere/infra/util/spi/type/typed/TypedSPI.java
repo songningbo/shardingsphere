@@ -24,6 +24,7 @@ import java.util.Properties;
 /**
  * Typed SPI.
  */
+// ShardingSphere顶层接口
 public interface TypedSPI {
     
     /**

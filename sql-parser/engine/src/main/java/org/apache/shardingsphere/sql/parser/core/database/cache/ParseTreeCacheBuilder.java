@@ -37,6 +37,7 @@ public final class ParseTreeCacheBuilder {
      * @param databaseType database type
      * @return built parse tree cache
      */
+    // 构建解析树缓存
     public static LoadingCache<String, ParseASTNode> build(final CacheOption option, final String databaseType) {
         return Caffeine.newBuilder().softValues().initialCapacity(option.getInitialCapacity()).maximumSize(option.getMaximumSize())
                 .build(new ParseTreeCacheLoader(databaseType));

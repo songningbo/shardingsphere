@@ -40,6 +40,7 @@ import java.util.stream.Collectors;
 /**
  * Weight read query load-balance algorithm.
  */
+// 权重负载均衡算法
 public final class WeightReadQueryLoadBalanceAlgorithm implements ReadQueryLoadBalanceAlgorithm, TransactionReadQueryStrategyAware {
     
     private static final double ACCURACY_THRESHOLD = 0.0001;

@@ -36,6 +36,7 @@ import java.util.Properties;
 /**
  * ShardingSphere data source factory.
  */
+// ShardingSphereDataSource工厂用于构造ShardingSphereDataSource对象
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ShardingSphereDataSourceFactory {
     

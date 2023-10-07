@@ -36,32 +36,34 @@ import java.util.Map;
 /**
  * Sharding rule configuration for YAML.
  */
+// yaml配置文件的分片规则配置基础类
 @Getter
 @Setter
 public final class YamlShardingRuleConfiguration implements YamlRuleConfiguration {
-    
+    // 表分片规则配置表
     private Map<String, YamlTableRuleConfiguration> tables = new LinkedHashMap<>();
-    
+    // 自动表分片规则配置表
     private Map<String, YamlShardingAutoTableRuleConfiguration> autoTables = new LinkedHashMap<>();
-    
+    // 绑表集合
     private Collection<String> bindingTables = new LinkedList<>();
-    
+    // 传播表集合
     private Collection<String> broadcastTables = new LinkedList<>();
-    
+    // 默认分库策略
     private YamlShardingStrategyConfiguration defaultDatabaseStrategy;
-    
+    // 默认分表策略
     private YamlShardingStrategyConfiguration defaultTableStrategy;
-    
+    // 默认自增列值生成器
     private YamlKeyGenerateStrategyConfiguration defaultKeyGenerateStrategy;
-    
+    // 默认审核策略
     private YamlShardingAuditStrategyConfiguration defaultAuditStrategy;
-    
+    // 分片算法集合
     private Map<String, YamlAlgorithmConfiguration> shardingAlgorithms = new LinkedHashMap<>();
-    
+    // 自增列值生成器集合
     private Map<String, YamlAlgorithmConfiguration> keyGenerators = new LinkedHashMap<>();
-    
+    // 分布式审核集合
     private Map<String, YamlAlgorithmConfiguration> auditors = new LinkedHashMap<>();
-    
+
+    // 默认分片列
     private String defaultShardingColumn;
     
     @Override

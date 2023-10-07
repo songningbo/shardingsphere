@@ -23,12 +23,14 @@ import lombok.RequiredArgsConstructor;
 /**
  * Complex sharding strategy configuration.
  */
+// 复合分片策略配置
 @RequiredArgsConstructor
 @Getter
 public final class ComplexShardingStrategyConfiguration implements ShardingStrategyConfiguration {
-    
+
+    // 分片列名称，多个列以逗号份分隔。
     private final String shardingColumns;
-    
+    // 分片算法名称。
     private final String shardingAlgorithmName;
     
     @Override

@@ -23,9 +23,11 @@ import lombok.RequiredArgsConstructor;
 /**
  * Dynamic Readwrite-splitting strategy configuration.
  */
+// 动态读写分离配置策略
 @RequiredArgsConstructor
 @Getter
 public final class DynamicReadwriteSplittingStrategyConfiguration {
-    
+
+    // 自动注入数据源名称
     private final String autoAwareDataSourceName;
 }

@@ -82,6 +82,7 @@ public final class DataSourcePoolCreator {
      * @param dataSourceProps data source properties
      * @return created data source
      */
+    // 创建数据源
     public static DataSource create(final DataSourceProperties dataSourceProps) {
         DataSource result = createDataSource(dataSourceProps.getDataSourceClassName());
         Optional<DataSourcePoolMetaData> poolMetaData = TypedSPILoader.findService(DataSourcePoolMetaData.class, dataSourceProps.getDataSourceClassName());

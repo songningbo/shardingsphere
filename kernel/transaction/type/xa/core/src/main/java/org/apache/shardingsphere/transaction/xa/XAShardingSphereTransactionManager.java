@@ -46,10 +46,12 @@ import java.util.Map.Entry;
 /**
  * ShardingSphere Transaction manager for XA.
  */
+// ShardingSphere分布式事务的XA实现类
 public final class XAShardingSphereTransactionManager implements ShardingSphereTransactionManager {
     
     private final Map<String, XATransactionDataSource> cachedDataSources = new HashMap<>();
-    
+
+    // XA事务管理器提供程序。
     private XATransactionManagerProvider xaTransactionManagerProvider;
     
     @Override

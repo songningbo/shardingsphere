@@ -25,6 +25,7 @@ import java.util.List;
 /**
  * Traffic load balance algorithm.
  */
+// 流量负载均衡算法
 public interface TrafficLoadBalanceAlgorithm extends TypedSPI {
     
     /**

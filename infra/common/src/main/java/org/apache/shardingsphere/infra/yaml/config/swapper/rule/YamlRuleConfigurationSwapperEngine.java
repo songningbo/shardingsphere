@@ -29,6 +29,7 @@ import java.util.stream.Collectors;
 /**
  * YAML rule configuration swapper engine.
  */
+// YAML规则配置转换器引擎。
 public final class YamlRuleConfigurationSwapperEngine {
     
     /**
@@ -37,6 +38,7 @@ public final class YamlRuleConfigurationSwapperEngine {
      * @param ruleConfigs rule configurations
      * @return YAML rule configurations
      */
+    // 将集合转换为YamlRuleConfiguration
     @SuppressWarnings("unchecked")
     public Collection<YamlRuleConfiguration> swapToYamlRuleConfigurations(final Collection<RuleConfiguration> ruleConfigs) {
         return OrderedSPILoader.getServices(YamlRuleConfigurationSwapper.class, ruleConfigs).entrySet().stream()

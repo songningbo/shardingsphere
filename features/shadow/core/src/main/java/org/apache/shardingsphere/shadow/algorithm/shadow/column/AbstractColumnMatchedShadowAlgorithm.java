@@ -33,11 +33,12 @@ import java.util.Properties;
  */
 @Getter
 public abstract class AbstractColumnMatchedShadowAlgorithm implements ColumnShadowAlgorithm<Comparable<?>> {
-    
+
     private static final String COLUMN_PROPS_KEY = "column";
-    
+
+    // SQL操作类型(INSERT,UPDATE,DELETE,SELECT)
     private static final String OPERATION_PROPS_KEY = "operation";
-    
+    // 影子列
     private String shadowColumn;
     
     private ShadowOperationType shadowOperationType;

@@ -32,6 +32,7 @@ import org.apache.shardingsphere.sql.parser.spi.DatabaseTypedSQLParserFacade;
 /**
  * SQL parser executor.
  */
+// SQL解析执行器
 @RequiredArgsConstructor
 public final class SQLParserExecutor {
     

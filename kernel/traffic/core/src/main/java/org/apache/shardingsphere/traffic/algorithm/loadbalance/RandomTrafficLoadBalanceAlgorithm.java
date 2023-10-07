@@ -26,6 +26,7 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * Random traffic load balance algorithm.
  */
+// 随机负载均衡算法
 public final class RandomTrafficLoadBalanceAlgorithm implements TrafficLoadBalanceAlgorithm {
     
     @Override

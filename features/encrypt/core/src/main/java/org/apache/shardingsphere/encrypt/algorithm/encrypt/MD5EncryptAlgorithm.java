@@ -26,10 +26,12 @@ import java.util.Properties;
 /**
  * MD5 encrypt algorithm.
  */
+// MD5辅助查询加密算法
 public final class MD5EncryptAlgorithm implements StandardEncryptAlgorithm<Object, String> {
     
     private static final String SALT = "salt";
-    
+
+    // 盐值
     private String salt;
     
     @Override

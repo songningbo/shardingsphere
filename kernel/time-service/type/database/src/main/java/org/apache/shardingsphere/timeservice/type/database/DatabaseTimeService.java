@@ -40,6 +40,7 @@ import java.util.stream.Collectors;
 /**
  * Database time service.
  */
+// 从数据库中获取当前时间进行路由
 public final class DatabaseTimeService implements ShardingSphereTimeService {
     
     private DataSource dataSource;

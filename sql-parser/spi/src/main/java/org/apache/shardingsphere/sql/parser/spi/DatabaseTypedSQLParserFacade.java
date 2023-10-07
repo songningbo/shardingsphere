@@ -22,6 +22,7 @@ import org.apache.shardingsphere.infra.util.spi.annotation.SingletonSPI;
 /**
  * Database type based SQL parser facade.
  */
+// 基于数据库类型的SQL解析器facade。
 @SingletonSPI
 public interface DatabaseTypedSQLParserFacade extends SQLParserFacade {
 }

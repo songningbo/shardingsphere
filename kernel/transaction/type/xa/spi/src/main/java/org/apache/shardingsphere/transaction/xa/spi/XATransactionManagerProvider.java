@@ -25,6 +25,7 @@ import javax.transaction.TransactionManager;
 /**
  * XA transaction manager provider.
  */
+// XA事务管理器提供程序。
 public interface XATransactionManagerProvider extends TypedSPI, AutoCloseable {
     
     /**

@@ -43,9 +43,10 @@ import java.util.Properties;
 /**
  * Meta data persist service.
  */
+// 元数据持久化服务
 @Getter
 public final class MetaDataPersistService {
-    
+    // 持久化仓库
     private final PersistRepository repository;
     
     private final DataSourcePersistService dataSourceService;

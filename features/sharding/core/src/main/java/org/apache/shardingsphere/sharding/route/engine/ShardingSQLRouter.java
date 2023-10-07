@@ -43,6 +43,7 @@ import java.util.Optional;
 /**
  * Sharding SQL router.
  */
+// 分片SQL路由
 public final class ShardingSQLRouter implements SQLRouter<ShardingRule> {
     
     @SuppressWarnings({"rawtypes", "unchecked"})

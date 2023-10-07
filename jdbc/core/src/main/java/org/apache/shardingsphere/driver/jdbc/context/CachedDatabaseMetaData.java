@@ -27,6 +27,7 @@ import java.sql.SQLFeatureNotSupportedException;
 /**
  * Cached database meta data.
  */
+// 缓存数据库元数据
 @Getter
 public final class CachedDatabaseMetaData {
     

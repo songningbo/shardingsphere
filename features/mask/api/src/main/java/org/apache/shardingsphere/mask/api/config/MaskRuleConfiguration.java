@@ -30,11 +30,13 @@ import java.util.Map;
 /**
  * Mask rule configuration.
  */
+// 脱敏规则配置入口
 @RequiredArgsConstructor
 @Getter
 public final class MaskRuleConfiguration implements DatabaseRuleConfiguration, EnhancedRuleConfiguration {
-    
+
+    // 脱敏表规则配置
     private final Collection<MaskTableRuleConfiguration> tables;
-    
+    // 脱敏算法名称和配置
     private final Map<String, AlgorithmConfiguration> maskAlgorithms;
 }

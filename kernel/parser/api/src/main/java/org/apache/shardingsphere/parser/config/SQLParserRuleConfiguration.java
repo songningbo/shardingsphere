@@ -25,13 +25,15 @@ import org.apache.shardingsphere.sql.parser.api.CacheOption;
 /**
  * SQL parser rule configuration.
  */
+// SQL解析规则配置
 @RequiredArgsConstructor
 @Getter
 public final class SQLParserRuleConfiguration implements GlobalRuleConfiguration {
-    
+
+    // 是否解析 SQL 注释
     private final boolean sqlCommentParseEnabled;
-    
+    // 解析语法树本地缓存配置
     private final CacheOption parseTreeCache;
-    
+    // 	SQL 语句本地缓存配置
     private final CacheOption sqlStatementCache;
 }

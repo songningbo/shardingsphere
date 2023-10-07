@@ -22,5 +22,6 @@ import org.apache.shardingsphere.infra.util.spi.type.typed.TypedSPI;
 /**
  * Encrypt algorithm.
  */
+// 加密算法
 public interface EncryptAlgorithm extends TypedSPI {
 }

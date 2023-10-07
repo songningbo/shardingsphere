@@ -26,6 +26,7 @@ import java.util.Collection;
  * 
  * @param <T> class type of sharding value
  */
+// 可根据需要提供自己的HintShardingAlgorithm实现类并集成到HitShardingStrategyConfiguration中。
 public interface HintShardingAlgorithm<T extends Comparable<?>> extends ShardingAlgorithm {
     
     /**
@@ -37,5 +38,6 @@ public interface HintShardingAlgorithm<T extends Comparable<?>> extends Sharding
      * @param shardingValue sharding value
      * @return sharding result for data sources or table names
      */
+    // 根据Hint信息执行分片
     Collection<String> doSharding(Collection<String> availableTargetNames, HintShardingValue<T> shardingValue);
 }

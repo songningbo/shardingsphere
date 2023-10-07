@@ -28,6 +28,7 @@ import java.util.Properties;
 /**
  * Typed SPI loader.
  */
+// TypedSPI加载器
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class TypedSPILoader {
     

@@ -23,11 +23,12 @@ import lombok.RequiredArgsConstructor;
 /**
  * Sharding table reference rule configuration.
  */
+// 分片表引用规则配置
 @RequiredArgsConstructor
 @Getter
 public final class ShardingTableReferenceRuleConfiguration {
-    
+    // 分片表名称
     private final String name;
-    
+    // 分片表引用
     private final String reference;
 }

@@ -27,6 +27,7 @@ public interface ShardingStrategyConfiguration {
      * 
      * @return sharding algorithm name
      */
+    // 获取分片算法名称
     String getShardingAlgorithmName();
     
     /**
@@ -34,5 +35,6 @@ public interface ShardingStrategyConfiguration {
      * 
      * @return type
      */
+    // 获取分片策略类型
     String getType();
 }

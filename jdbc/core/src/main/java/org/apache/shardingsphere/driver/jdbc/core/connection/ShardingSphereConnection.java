@@ -49,7 +49,8 @@ public final class ShardingSphereConnection extends AbstractConnectionAdapter {
     
     @Getter
     private final JDBCContext jdbcContext;
-    
+
+    // 用于管理connection
     @Getter
     private final ConnectionManager connectionManager;
     

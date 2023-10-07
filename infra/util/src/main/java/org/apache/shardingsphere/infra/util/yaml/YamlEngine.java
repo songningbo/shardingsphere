@@ -36,6 +36,7 @@ import java.util.Collection;
 /**
  * YAML engine.
  */
+// 将各种形式的输入内容转换成一个Yaml对象。输入形式包括File，字符串，byte[]等。
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class YamlEngine {
     
@@ -48,6 +49,7 @@ public final class YamlEngine {
      * @return object from YAML
      * @throws IOException IO Exception
      */
+    // 通过加载FileInputStream来完成Yaml对象的构建
     public static <T extends YamlConfiguration> T unmarshal(final File yamlFile, final Class<T> classType) throws IOException {
         try (
                 FileInputStream fileInputStream = new FileInputStream(yamlFile);

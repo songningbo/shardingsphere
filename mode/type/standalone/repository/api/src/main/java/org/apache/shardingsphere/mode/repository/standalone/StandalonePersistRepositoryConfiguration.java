@@ -26,6 +26,7 @@ import java.util.Properties;
 /**
  * Standalone persist repository configuration.
  */
+// 单机持久化仓库配置
 @RequiredArgsConstructor
 @Getter
 public final class StandalonePersistRepositoryConfiguration implements PersistRepositoryConfiguration {

@@ -39,6 +39,7 @@ import java.util.TreeSet;
 /**
  * Complex sharding strategy.
  */
+// 复合分片策略
 @Getter
 public final class ComplexShardingStrategy implements ShardingStrategy {
     

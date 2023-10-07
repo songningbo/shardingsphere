@@ -26,11 +26,14 @@ import java.util.Properties;
 /**
  * Algorithm configuration.
  */
+// 加解密算法配置
 @Getter
 public final class AlgorithmConfiguration {
-    
+
+    // 加解密算法类型
     private final String type;
-    
+
+    // 加解密算法属性配置
     private final Properties props;
     
     public AlgorithmConfiguration(final String type, final Properties props) {

@@ -25,13 +25,15 @@ import java.util.Collection;
 /**
  * Encrypt table rule configuration.
  */
+// 加密表规则配置
 @RequiredArgsConstructor
 @Getter
 public final class EncryptTableRuleConfiguration {
-    
+    // 表名称
     private final String name;
-    
+    // 加密列规则配置列表
     private final Collection<EncryptColumnRuleConfiguration> columns;
-    
+
+    // 是否从加密列查询
     private final Boolean queryWithCipherColumn;
 }

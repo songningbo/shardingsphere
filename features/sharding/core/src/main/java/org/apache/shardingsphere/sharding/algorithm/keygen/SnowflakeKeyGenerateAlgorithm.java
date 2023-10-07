@@ -40,10 +40,14 @@ import java.util.Properties;
  *     12 bits auto increment offset in one mills
  * </pre>
  */
+// 基于雪花算法的分布式主键生成算法。
 public final class SnowflakeKeyGenerateAlgorithm implements KeyGenerateAlgorithm, InstanceContextAware {
     
     public static final long EPOCH;
-    
+
+    // 最大抖动上限值，范围[0, 4096)。注：若使用此算法生成值作分片值，建议配置此属性。
+    // 此算法在不同毫秒内所生成的 key 取模 2^n (2^n一般为分库或分表数) 之后结果总为 0 或 1。
+    // 为防止上述分片问题，建议将此属性值配置为 (2^n)-1
     private static final String MAX_VIBRATION_OFFSET_KEY = "max-vibration-offset";
     
     private static final String MAX_TOLERATE_TIME_DIFFERENCE_MILLISECONDS_KEY = "max-tolerate-time-difference-milliseconds";
@@ -59,9 +63,11 @@ public final class SnowflakeKeyGenerateAlgorithm implements KeyGenerateAlgorithm
     private static final long TIMESTAMP_LEFT_SHIFT_BITS = WORKER_ID_LEFT_SHIFT_BITS + WORKER_ID_BITS;
     
     private static final int DEFAULT_VIBRATION_VALUE = 1;
-    
+
+    // 最大容忍时钟回退时间，单位：毫秒
     private static final int MAX_TOLERATE_TIME_DIFFERENCE_MILLISECONDS = 10;
-    
+
+    // 工作机器唯一标识：默认值是0。
     private static final int DEFAULT_WORKER_ID = 0;
     
     @Setter
@@ -118,19 +124,26 @@ public final class SnowflakeKeyGenerateAlgorithm implements KeyGenerateAlgorithm
     
     @Override
     public synchronized Long generateKey() {
+        // 获取当前时间戳
         long currentMilliseconds = timeService.getCurrentMillis();
+        // 如果出现了时钟回拨，则抛出异常或进行时钟等待
         if (waitTolerateTimeDifferenceIfNeed(currentMilliseconds)) {
             currentMilliseconds = timeService.getCurrentMillis();
         }
+        // 如果上次的生成时间与本次的是同一毫秒
         if (lastMilliseconds == currentMilliseconds) {
+            // 这个位运算保证始终就是在4096这个范围内，避免你自己传递的sequence超过了4096这个范围
             if (0L == (sequence = (sequence + 1) & SEQUENCE_MASK)) {
+                // 如果位运算结果为0，则需要等待下一个毫秒继续生成
                 currentMilliseconds = waitUntilNextTime(currentMilliseconds);
             }
-        } else {
+        } else {// 如果不是，则生成新的sequence
             vibrateSequenceOffset();
             sequence = sequenceOffset;
         }
         lastMilliseconds = currentMilliseconds;
+        // 先将当前时间戳左移放到完成41个bit，然后将工作进程为左移到10个bit，再将序号为放到最后的12个bit
+        // 最后拼接起来成一个64 bit的二进制数字
         return ((currentMilliseconds - EPOCH) << TIMESTAMP_LEFT_SHIFT_BITS) | ((long) getWorkerId() << WORKER_ID_LEFT_SHIFT_BITS) | sequence;
     }
     

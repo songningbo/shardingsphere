@@ -32,8 +32,9 @@ import java.util.stream.Collectors;
 /**
  * Boundary based range sharding algorithm.
  */
+// 基于分片边界的范围分片算法
 public final class BoundaryBasedRangeShardingAlgorithm extends AbstractRangeShardingAlgorithm {
-    
+    // 分片的范围边界，多个范围边界以逗号分隔。
     private static final String SHARDING_RANGES_KEY = "sharding-ranges";
     
     @Override

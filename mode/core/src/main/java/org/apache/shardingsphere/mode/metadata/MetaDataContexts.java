@@ -35,6 +35,7 @@ import java.util.Optional;
 /**
  * Meta data contexts.
  */
+// 元数据上下文。
 @Getter
 public final class MetaDataContexts implements AutoCloseable {
     

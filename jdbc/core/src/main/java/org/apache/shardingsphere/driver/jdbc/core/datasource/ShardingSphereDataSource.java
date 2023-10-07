@@ -45,12 +45,13 @@ import java.util.stream.Collectors;
 /**
  * ShardingSphere data source.
  */
+// 为支持分片，ShardingSphereDataSource进行重写DataSource
 public final class ShardingSphereDataSource extends AbstractDataSourceAdapter implements AutoCloseable {
-    
+    // 数据库名称
     private final String databaseName;
     
     private final ContextManager contextManager;
-    
+    // JDBC上下文用存储数据库元数据
     private final JDBCContext jdbcContext;
     
     public ShardingSphereDataSource(final String databaseName, final ModeConfiguration modeConfig) throws SQLException {

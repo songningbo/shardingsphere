@@ -63,9 +63,11 @@ import java.util.Random;
  * Connection manager.
  */
 public final class ConnectionManager implements ExecutorJDBCConnectionManager, AutoCloseable {
-    
+
+    // 保存数据源配置Map。key是数据源名称，value是DataSource。
     private final Map<String, DataSource> dataSourceMap = new LinkedHashMap<>();
-    
+
+    // 逻辑数据源配置Map
     private final Map<String, DataSource> physicalDataSourceMap = new LinkedHashMap<>();
     
     @Getter
@@ -259,7 +261,9 @@ public final class ConnectionManager implements ExecutorJDBCConnectionManager, A
      * @throws SQLException SQL exception
      */
     public void setReadOnly(final boolean readOnly) throws SQLException {
+        // 调用recordMethodInvocation方法记录方法调用的元数据
         methodInvocationRecorder.record("setReadOnly", connection -> connection.setReadOnly(readOnly));
+        // 执行回调
         forceExecuteTemplate.execute(cachedConnections.values(), connection -> connection.setReadOnly(readOnly));
     }
     
@@ -302,24 +306,29 @@ public final class ConnectionManager implements ExecutorJDBCConnectionManager, A
     
     @Override
     public List<Connection> getConnections(final String dataSourceName, final int connectionSize, final ConnectionMode connectionMode) throws SQLException {
+        // 根据数据源名称获取数据源对象
         DataSource dataSource = dataSourceMap.get(dataSourceName);
         Preconditions.checkState(null != dataSource, "Missing the data source name: '%s'", dataSourceName);
         Collection<Connection> connections;
+        // 根据数据源从cachedConnections中获取connections。
         synchronized (cachedConnections) {
             connections = cachedConnections.get(dataSourceName);
         }
+        // 如果connections多于想要的connectionSize，则只获取所需部分。
         List<Connection> result;
         if (connections.size() >= connectionSize) {
             result = new ArrayList<>(connections).subList(0, connectionSize);
-        } else if (!connections.isEmpty()) {
+        } else if (!connections.isEmpty()) {// 如果connections不够
             result = new ArrayList<>(connectionSize);
             result.addAll(connections);
+            // 创建新的connections
             List<Connection> newConnections = createConnections(dataSourceName, dataSource, connectionSize - connections.size(), connectionMode);
             result.addAll(newConnections);
             synchronized (cachedConnections) {
+                // 将新创建的connections放入缓存中进行管理。
                 cachedConnections.putAll(dataSourceName, newConnections);
             }
-        } else {
+        } else {// //如果缓存中没有对应dataSource的Connections，同样进行创建并放入缓存中
             result = new ArrayList<>(createConnections(dataSourceName, dataSource, connectionSize, connectionMode));
             synchronized (cachedConnections) {
                 cachedConnections.putAll(dataSourceName, result);
@@ -335,6 +344,7 @@ public final class ConnectionManager implements ExecutorJDBCConnectionManager, A
             methodInvocationRecorder.replay(connection);
             return Collections.singletonList(connection);
         }
+        // 连接模式
         if (ConnectionMode.CONNECTION_STRICTLY == connectionMode) {
             return createConnections(dataSourceName, dataSource, connectionSize, connectionContext.getTransactionConnectionContext());
         }

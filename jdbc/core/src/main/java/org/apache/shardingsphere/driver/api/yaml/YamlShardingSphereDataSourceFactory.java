@@ -43,11 +43,12 @@ import java.util.Map;
 /**
  * ShardingSphere data source factory for YAML.
  */
+//  YAML的ShardingSphereDataSource工厂
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class YamlShardingSphereDataSourceFactory {
-    
+    // YAML规则配置交换器引擎。
     private static final YamlRuleConfigurationSwapperEngine SWAPPER_ENGINE = new YamlRuleConfigurationSwapperEngine();
-    
+    // YAML数据源配置交换器。
     private static final YamlDataSourceConfigurationSwapper DATA_SOURCE_SWAPPER = new YamlDataSourceConfigurationSwapper();
     
     /**
@@ -58,6 +59,7 @@ public final class YamlShardingSphereDataSourceFactory {
      * @throws SQLException SQL exception
      */
     public static DataSource createDataSourceWithoutCache(final YamlRootConfiguration rootConfig) throws SQLException {
+        // 解析rootConfiguration对象中的数据源并解析成集合
         Map<String, DataSource> dataSourceMap = DATA_SOURCE_SWAPPER.swapToDataSources(rootConfig.getDataSources(), false);
         try {
             return createDataSource(dataSourceMap, rootConfig);
@@ -148,8 +150,11 @@ public final class YamlShardingSphereDataSourceFactory {
     }
     
     private static DataSource createDataSource(final Map<String, DataSource> dataSourceMap, final YamlRootConfiguration rootConfig) throws SQLException {
+        // 运行模式
         ModeConfiguration modeConfig = null == rootConfig.getMode() ? null : new YamlModeConfigurationSwapper().swapToObject(rootConfig.getMode());
+        // 通过yaml转换器引擎将YamlRootConfiguration转换成ShardingRuleConfiguration。
         Collection<RuleConfiguration> ruleConfigs = SWAPPER_ENGINE.swapToRuleConfigurations(rootConfig.getRules());
+        // 创建ShardingSphereDataSource对象
         return ShardingSphereDataSourceFactory.createDataSource(rootConfig.getDatabaseName(), modeConfig, dataSourceMap, ruleConfigs, rootConfig.getProps());
     }
     

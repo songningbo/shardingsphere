@@ -27,6 +27,7 @@ import java.util.Collection;
 /**
  * SQL hint shadow algorithm.
  */
+// SQL Hint影子算法
 public final class SQLHintShadowAlgorithm implements HintShadowAlgorithm<String> {
     
     @Override

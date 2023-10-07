@@ -22,5 +22,6 @@ import org.apache.shardingsphere.infra.config.rule.RuleConfiguration;
 /**
  * Global rule configuration.
  */
+// 全局规则配置
 public interface GlobalRuleConfiguration extends RuleConfiguration {
 }

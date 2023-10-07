@@ -30,8 +30,9 @@ import lombok.Setter;
 public final class ShadowDataSourceConfiguration {
     
     private final String name;
-    
+
+    // 生产数据源名称
     private final String productionDataSourceName;
-    
+    // 影子数据源名称
     private final String shadowDataSourceName;
 }

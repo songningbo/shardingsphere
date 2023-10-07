@@ -38,6 +38,7 @@ public final class MethodInvocationRecorder<T> {
      * @param methodName method name
      * @param callback callback
      */
+    // 记录方法调用。
     public void record(final String methodName, final ForceExecuteCallback<T> callback) {
         methodInvocations.put(methodName, callback);
     }
@@ -48,6 +49,7 @@ public final class MethodInvocationRecorder<T> {
      * @param target target object
      * @throws SQLException SQL Exception
      */
+    // 重放方法调用。
     public void replay(final T target) throws SQLException {
         for (ForceExecuteCallback<T> each : methodInvocations.values()) {
             each.execute(target);

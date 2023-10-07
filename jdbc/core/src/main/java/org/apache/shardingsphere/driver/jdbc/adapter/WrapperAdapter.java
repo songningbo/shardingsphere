@@ -28,14 +28,18 @@ import java.sql.Wrapper;
 /**
  * Adapter for {@code java.sql.Wrapper}.
  */
+// 实现JDBC API核心接口实现的Wrapper，ShardingSphere实现该接口，对外提供抽象类WrapperAdapter，
+// 为ShardingSphere重新JDBC API提供能力。
 @Getter
 public abstract class WrapperAdapter implements Wrapper {
-    
+
+    // 方法调用记录器
     private final MethodInvocationRecorder<Statement> methodInvocationRecorder = new MethodInvocationRecorder<>();
     
     @SuppressWarnings("unchecked")
     @Override
     public final <T> T unwrap(final Class<T> iface) throws SQLException {
+        // 判断实例是否是WrapperAdapter类。
         if (isWrapperFor(iface)) {
             return (T) this;
         }

@@ -22,6 +22,7 @@ import org.apache.shardingsphere.infra.util.spi.type.typed.TypedSPI;
 /**
  * Key generate algorithm.
  */
+// 分布式主键生成算法
 public interface KeyGenerateAlgorithm extends TypedSPI {
     
     /**

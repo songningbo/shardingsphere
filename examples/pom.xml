@@ -28,6 +28,7 @@
     
     <modules>
         <module>example-core</module>
+        <module>shardingsphere-demo</module>
         <module>shardingsphere-proxy-example</module>
         <module>shardingsphere-parser-example</module>
         <module>shardingsphere-example-generator</module>

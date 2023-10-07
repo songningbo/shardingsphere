@@ -50,6 +50,7 @@ import java.util.Map;
 /**
  * ShardingSphere result set.
  */
+// 为支持分片，ShardingSphereResultSet进行重写ResultSet
 public final class ShardingSphereResultSet extends AbstractResultSetAdapter {
     
     private static final String ASCII = "Ascii";

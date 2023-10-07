@@ -32,6 +32,7 @@ import java.util.stream.Collectors;
 /**
  * YAML data source configuration swapper.
  */
+// YAML数据源配置交换器。
 public final class YamlDataSourceConfigurationSwapper {
     
     private static final String DATA_SOURCE_CLASS_NAME_KEY = "dataSourceClassName";
@@ -44,6 +45,7 @@ public final class YamlDataSourceConfigurationSwapper {
      * @param yamlDataSources YAML data sources map
      * @return data sources
      */
+    // 从YAML DataSource转换到DataSource。
     public Map<String, DataSource> swapToDataSources(final Map<String, Map<String, Object>> yamlDataSources) {
         return swapToDataSources(yamlDataSources, true);
     }

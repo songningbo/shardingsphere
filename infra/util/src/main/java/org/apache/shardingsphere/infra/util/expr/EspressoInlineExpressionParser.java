@@ -29,6 +29,7 @@ import java.util.List;
 /**
  * Espresso Inline expression parser.
  */
+// 基于 GraalVM Truffle 的 Espresso 实现的使用 Groovy 语法的行表达式
 public class EspressoInlineExpressionParser {
     
     private static final Context POLYGLOT;

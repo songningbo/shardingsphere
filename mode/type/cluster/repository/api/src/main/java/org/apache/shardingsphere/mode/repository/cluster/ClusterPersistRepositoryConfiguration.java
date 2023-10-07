@@ -26,6 +26,7 @@ import java.util.Properties;
 /**
  * Cluster persist repository configuration.
  */
+// 集群持久化仓库配置
 @RequiredArgsConstructor
 @Getter
 public final class ClusterPersistRepositoryConfiguration implements PersistRepositoryConfiguration {

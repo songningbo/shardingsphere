@@ -26,6 +26,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 /**
  * Parse context cache loader.
  */
+// 解析上下文缓存加载程序。
 public final class ParseTreeCacheLoader implements CacheLoader<String, ParseASTNode> {
     
     private final SQLParserExecutor sqlParserExecutor;

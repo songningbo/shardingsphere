@@ -24,6 +24,7 @@ import java.util.Date;
 /**
  * System time service.
  */
+// 从应用系统时间中获取当前时间进行路由
 public final class SystemTimeService implements ShardingSphereTimeService {
     
     @Override

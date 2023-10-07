@@ -32,7 +32,10 @@
             <groupId>org.apache.shardingsphere</groupId>
             <artifactId>shardingsphere-infra-common</artifactId>
         </dependency>
-        
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>shardingsphere-jdbc-core</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
@@ -40,6 +43,17 @@
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shardingsphere</groupId>
+            <artifactId>shardingsphere-mode</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shardingsphere.example</groupId>
+            <artifactId>example-api</artifactId>
+            <version>5.3.2</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
     

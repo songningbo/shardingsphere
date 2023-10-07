@@ -23,10 +23,12 @@ import lombok.RequiredArgsConstructor;
 /**
  * Hint sharding strategy configuration.
  */
+// Hint分片策略配置
 @RequiredArgsConstructor
 @Getter
 public final class HintShardingStrategyConfiguration implements ShardingStrategyConfiguration {
-    
+
+    // 分片算法名称
     private final String shardingAlgorithmName;
     
     @Override
